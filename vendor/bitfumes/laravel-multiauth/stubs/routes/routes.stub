@@ -22,4 +22,5 @@ Route::group(['namespace' => '{{singularClass}}'], function() {
     Route::get('email/resend','Auth\VerificationController@resend')->name('{{singularSlug}}.verification.resend');
     Route::get('email/verify','Auth\VerificationController@show')->name('{{singularSlug}}.verification.notice');
     Route::get('email/verify/{id}/{hash}','Auth\VerificationController@verify')->name('{{singularSlug}}.verification.verify');
+
 });

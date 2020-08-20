@@ -177,7 +177,9 @@ return [
         Yajra\DataTables\DataTablesServiceProvider::class,
          Yajra\DataTables\ButtonsServiceProvider::class,
          Barryvdh\Snappy\ServiceProvider::class,
-         Yajra\DataTables\HtmlServiceProvider::class
+         Yajra\DataTables\HtmlServiceProvider::class,
+          Intervention\Image\ImageServiceProvider::class,
+
     ],
 
     /*
@@ -232,6 +234,7 @@ return [
         'Datatables' => Yajra\Datatables\Facades\Datatables::class,
         'PDF' => Barryvdh\Snappy\Facades\SnappyPdf::class,
         'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
+          'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];

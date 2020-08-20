@@ -56,6 +56,22 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
+                                <button type="submit" class="btn ">
+                                    <a href="{{ route('login.github') }}">  <img src="{{asset('dist/img/github.png')}}" alt="github Logo" class="brand-image img-circle elevation-3"
+                                       style="opacity: .8"></a>
+
+                                </button>
+                                <button type="submit" class="btn ">
+                                  <img src="{{asset('dist/img/facebook.png')}}" alt="github Logo" class="brand-image img-circle elevation-3"
+                                       style="opacity: .8">
+
+                                </button>
+                                <button type="submit" class="btn ">
+                                <a href="#"> <img src="{{asset('dist/img/linkedin.png')}}" alt="github Logo" class="brand-image img-circle elevation-3"
+                                       style="opacity: .8"></a>
+
+                                </button>
+
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">

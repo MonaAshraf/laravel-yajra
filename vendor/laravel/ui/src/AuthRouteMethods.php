@@ -18,6 +18,8 @@ class AuthRouteMethods
             $this->post('login', 'Auth\LoginController@login');
             $this->post('logout', 'Auth\LoginController@logout')->name('logout');
 
+              $this->get('sign-in/github', 'Auth\LoginController@github')->name('login.github');
+              $this->get('sign-in/github/redirect', 'Auth\LoginController@githubRedirect');
             // Registration Routes...
             if ($options['register'] ?? true) {
                 $this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');

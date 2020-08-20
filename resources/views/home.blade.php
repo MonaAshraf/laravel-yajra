@@ -14,6 +14,7 @@
                         </div>
                     @endif
 
+                  Hi {{$name ?? ''}}
                     You are logged in!
                 </div>
             </div>

@@ -23,4 +23,12 @@ Route::group(['namespace' => 'Owner'], function() {
     Route::get('email/resend','Auth\VerificationController@resend')->name('owner.verification.resend');
     Route::get('email/verify','Auth\VerificationController@show')->name('owner.verification.notice');
     Route::get('email/verify/{id}/{hash}','Auth\VerificationController@verify')->name('owner.verification.verify');
+
+    Route::get('create', 'HomeController@create')->name('owner.create');
+    Route::post('store', 'HomeController@store');
+    Route::get('show/{id}', 'HomeController@show')->name('owner.show');
+    Route::get('edit/{id}', 'HomeController@edit')->name('owner.edit');
+    Route::post('update/{id}', 'HomeController@update');
+    Route::get('delete/{id}', 'HomeController@delete')->name('owner.delete');
+
 });

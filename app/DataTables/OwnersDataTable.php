@@ -11,9 +11,9 @@ use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 use Yajra\DataTables\Html\Builder;
-
-
-
+use Lang;
+use Image;
+use DB;
 
 
 
@@ -32,7 +32,23 @@ class OwnersDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'owners.action');
+
+            ->addColumn('action',function ($query)
+            {
+
+              return '<pre><a href="'.route('owner.edit',['id' => $query->id]).'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a> <a href="'.route('owner.show',['id' => $query->id]).'" class="btn btn-xs btn-warning"><i class=" glyphicon glyphicon-eye-open"></i> Show</a> <a href="'.route('owner.delete',['id' => $query->id]).'" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-trash"></i> Delete</a></pre>';
+            })
+            ->addColumn('image', function ($query)
+            {
+              if (empty($query->image)) {
+                return '';
+              }
+              return '<img src='.$query->image.' height="40" width="40"/>';
+            })
+
+
+            ;
+
     }
 
     /**
@@ -63,16 +79,18 @@ class OwnersDataTable extends DataTable
                     ->minifiedAjax()
                     ->dom('Bfrtip')
                     ->orderBy(1)
-
+                    ->language(Lang::get('datatables'))
 
                     ->buttons(
                         Button::make('export')->className('msuccess'),
-                        Button::make('create')->action("window.location = '".route('owner.mydashboard')."';")->className("btn-primary"),
+                        Button::make('create')->action("window.location = '".route('owner.create')."';")->className("btn-primary"),
 
-                        Button::make('print'),
+                        Button::make('print')
+                        ->className('btn-info'),
                         Button::make('reset'),
                         Button::make('reload')->className('btn-success')
                     );
+
 
 
     }
@@ -86,8 +104,13 @@ class OwnersDataTable extends DataTable
     {
         return [
 
-
+          // Column::checkbox('')
+          //       ->exportable(false)
+          //       ->printable(false)
+          //       ->width(60)
+          //       ->addClass('text-center noVis'),
             Column::make('id'),
+            Column::make('image'),
             Column::make('name'),
             Column::make('email'),
             Column::make('created_at'),
@@ -97,6 +120,7 @@ class OwnersDataTable extends DataTable
                   ->printable(false)
                   ->width(60)
                   ->addClass('text-center'),
+
         ];
     }
 
