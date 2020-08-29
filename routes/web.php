@@ -15,7 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 //Route::get('/home','AdminController@index')->name('admin.home');
 Route::get('/', function () {
+<<<<<<< HEAD
     return view('layouts/zhome');
+=======
+    return view('welcome');
+>>>>>>> 68dee158f3c23f96228c504c1b6c1ced8b01a7d9
 });
 
 Auth::routes();
