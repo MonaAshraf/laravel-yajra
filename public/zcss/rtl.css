@@ -1,0 +1,50 @@
+body
+{
+    direction: rtl;
+    font-family: 'Cairo', sans-serif !important;
+}
+.main_menu > li > a , .sign-in , .xl-text1
+{
+    font-family: 'Cairo', sans-serif;
+}
+.block2-btn-addcart
+{
+        left: 59%;
+}
+.p-r-0 {
+    padding-right: 10px;
+}
+.bo-r {
+    border-left: 1px solid #eaeaea;
+}
+
+.file-upload .file-select
+{
+        text-align: right;
+}
+
+
+.header-icons
+{
+        direction: ltr;
+}
+.header-icon1 .fa-user 
+{
+         float: right;
+    padding: 4px 10px;
+}
+
+@media screen and (max-width: 980px) {
+.w-size-modal {
+    width: calc(100% /1);
+     padding-right: 0px; 
+    padding-left: 19px;
+}
+}
+@media screen and (max-width: 980px) {
+.size-modal {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 18px;
+}
+}
